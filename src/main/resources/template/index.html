@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendace</title>
+    <script>
+        const   array = [];
+        let counter = 0;
+        function markPresent(){
+//Add this statement in the right location. and complete absent code.
+            if(document.getElementById("rollno").innerHTML == 21124){
+                return;
+            }
+            array.push(document.getElementById("rollno").innerHTML + "P");
+            let arrayOUtput = ""; 
+            for (let index = 0; index < array.length; index++) {
+                const element = array[index];
+                
+                arrayOUtput += element + "<br>";
+            }
+            counter++;  
+            if(counter == 40){
+                document.getElementById("rollno").innerHTML =   parseInt(document.getElementById("rollno").innerHTML) + 60;
+            }
+            
+            document.getElementById("rollcall").innerHTML= arrayOUtput;
+
+            document.getElementById("rollno").innerHTML=parseInt(document.getElementById("rollno").innerHTML) + 1;
+        }
+        function markAbest(){
+            document.getElementById("rollcall") =  document.getElementById("rollno").innerHTML + "P";
+            
+            document.getElementById("rollno").innerHTML=parseInt(document.getElementById("rollno").innerHTML) + 1;
+        }
+    </script>
+</head>
+<body>
+    <h1>Attendace</h1>
+    <h3>
+        Roll no. <span id="rollno">
+            21001
+        </span>
+    </h3>
+    <button onclick="markPresent()">
+        Present
+    </button>
+    <button onclick="markAbest()">
+        Absent
+    </button>
+    <div id="rollcall">
+
+    </div>
+</body>
+</html>
