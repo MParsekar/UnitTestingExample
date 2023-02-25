@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <script>
+        let endDetected = false;
+
+        function presentClick() {
+
+            if(endDetected){
+                return;
+            }
+            //We are adding the number to the list.
+            document.getElementById("listrollnumbers").innerHTML += document.getElementById("rollno").innerHTML + "P"+"<br>";
+            //Detecting if the numebr is at the end 
+            if(document.getElementById("rollno").innerHTML == 21124){
+                endDetected=true;
+                return;
+            }
+            //Creating a new rollno.
+            let currentRollno = parseInt(document.getElementById("rollno").innerHTML) + 1;
+            
+            if(document.getElementById("rollno").innerHTML == 21040){
+                currentRollno+=60
+            }
+            
+            document.getElementById("rollno").innerHTML = currentRollno;
+            
+
+        }
+        function absentClick() {
+            document.getElementById("mark").innerHTML = "A";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Attendance Sheet</h1>
+    <h3>Roll No. <span id="rollno">21001</span></h3>
+    <button onclick="presentClick()">
+        Present
+    </button>
+    <button onclick="absentClick()">Absent</button>
+    <div id="listrollnumbers"></div>
+</body>
+
+</html>
