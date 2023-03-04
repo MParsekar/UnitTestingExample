@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <script>
+        let endDetected = false;
+
+        function presentClick() {
+
+            markAttendance("P")
+        }
+        function absentClick() {
+            markAttendance("A")
+
+        }
+        function markAttendance(mark) {
+            const CLASS_A_END_ROLLNO = 21040;
+            const CLASS_B_END_ROLLNO = 21124;
+            const JUMP = 60;
+
+            if (endDetected) {
+                return;
+            }
+            
+            let rollNumberElement = document.getElementById("rollno");
+            let list = document.getElementById("listrollnumbers");
+
+            //We are adding the number to the list.
+            list.innerHTML += rollNumberElement.innerHTML + mark + "<br>";
+
+            //Detecting if the numebr is at the end 
+            if (rollNumberElement.innerHTML == CLASS_B_END_ROLLNO) {
+                endDetected = true;
+                return;
+            }
+
+            //Creating a new rollno.
+            let currentRollno = parseInt(rollNumberElement.innerHTML) + 1;
+
+            if (rollNumberElement.innerHTML == CLASS_A_END_ROLLNO) {
+                currentRollno += JUMP;
+            }
+
+            rollNumberElement.innerHTML = currentRollno;
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Attendance Sheet</h1>
+    <h3>Roll No. <span id="rollno">21001</span></h3>
+    <button onclick="presentClick()">
+        Present
+    </button>
+    <button onclick="absentClick()">Absent</button>
+    <div id="listrollnumbers"></div>
+</body>
+
+</html>
