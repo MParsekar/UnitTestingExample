@@ -9,4 +9,8 @@ public class MainController {
     public String index() {
         return "index2";
     }
+    @GetMapping("/createStudent")
+    public String createStudent() {
+        return "createStudent";
+    }
 }
