@@ -10,7 +10,7 @@ import lombok.ToString;
 @Setter
 @JsonSerializableSchema
 @ToString
-public class Student {
+public class StudentDTO {
     String name;
     String rollno;
     String classy;
