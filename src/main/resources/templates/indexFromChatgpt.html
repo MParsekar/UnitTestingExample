@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attendance Form</title>
+	<!-- Add Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<h2 class="mt-5">Attendance Form</h2>
+		
+		<!-- Display the current roll number -->
+		<p>Current roll number: <span id="roll-number"></span></p>
+		
+		<!-- Form to mark attendance -->
+		<form>
+			<div class="form-group">
+				<label for="attendance">Mark attendance:</label><br>
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-outline-success" id="present">Present</button>
+					<button type="button" class="btn btn-outline-danger" id="absent">Absent</button>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+	
+	<!-- Add Bootstrap JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+	<!-- JavaScript code to display the current roll number and submit attendance -->
+	<script>
+		// List of student names
+		var students = ["Alice", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Harry", "Ivy", "Jack"];
+		
+		// Generate a random roll number between 1 and 10
+		var currentRollNumber = Math.floor(Math.random() * 10) + 1;
+		
+		// Display the current roll number
+		document.getElementById("roll-number").innerHTML = currentRollNumber;
+		
+		// Add event listeners to the buttons
+		document.getElementById("present").addEventListener("click", function() {
+			submitAttendance("present");
+		});
+		
+		document.getElementById("absent").addEventListener("click", function() {
+			submitAttendance("absent");
+		});
+		
+		// Submit attendance function
+		function submitAttendance(attendance) {
+			// Do something with the attendance value
+			console.log("Attendance marked: " + attendance);
+		}
+	</script>
+</body>
+</html>
+``
